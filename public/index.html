@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task Tracker</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row" ng-app="TaskTrackerApp" ng-controller="TaskController">
+		<div class="col-md-6 ">
+			<div class="row first " fullheight>
+				<div class="col-md-12 data-column">
+					<div class="form-group">
+						<h1 class="title">Today's Task</h1>
+					</div>
+				  	<div class="form-group">
+				   		<input type="text" class="form-control" id="task" ng-model="task"  ng-enter="addTask()" placeholder="Enter tasks to be done">
+				  	</div>
+				  	<ul class="list-group">
+					  <li class="list-group-item animate-repeat" ng-repeat="task in dailyTasks" ng-show="!task.status && isTodays(task)">
+					    <a class="badge" href="#" ng-click="deleteTask(task)">&times;</a>
+					    <a class="tick" href="#" ng-click="done(task)">&#10003; &nbsp; {{task.task}}</a>
+					  </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6" >
+			<div class="row second " halfheight>
+				<div class="col-md-12 data-column">
+					<div class="form-group">
+						<h1 class="title">Finished Today's Task</h1>
+					</div>
+					<ul class="list-group">
+					  	<li class="list-group-item animate-repeat" ng-repeat="task in dailyTasks" ng-show="task.status && isTodays(task)">
+						    <a class="badge" href="#" ng-click="deleteTask(task)">&times;</a>
+						    {{task.task}}
+					  	</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row third " halfheight>
+				<div class="col-md-12 data-column">
+					<div class="form-group">
+						<h1 class="title">Task History</h1>
+					</div>
+					<ul class="list-group">
+					  	<li class="list-group-item animate-repeat" ng-repeat="task in dailyTasks" ng-show="!isTodays(task)">
+						    <a class="badge" href="#" ng-click="deleteTask(task)">&times;</a>
+						    {{task.task}}
+						    <br>
+						    <span class="timetaken">{{task.finisheddate | date : 'short'}}</span>
+					  	</li>
+					</ul>
+				</div>
+			</div>
+		</div>	
+	</div>
+</div>
+<script type="text/javascript" src="//code.angularjs.org/1.3.10/angular.min.js"></script>
+<script type="text/javascript" src="//code.angularjs.org/1.3.10/angular-animate.js"></script>
+<script type="text/javascript" src="javascripts/script.js"></script>
+</body>
+</html>
