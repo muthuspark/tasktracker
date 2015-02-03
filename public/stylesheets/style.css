@@ -101,10 +101,10 @@ a {
   opacity:0;
   max-height:0;
 }
-
 .animate-repeat.ng-leave,
 .animate-repeat.ng-move.ng-move-active,
 .animate-repeat.ng-enter.ng-enter-active {
   opacity:1;
   max-height:40px;
 }
+.completed{text-decoration: line-through;}

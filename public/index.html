@@ -33,7 +33,7 @@
 						<h1 class="title">Finished Today's Task</h1>
 					</div>
 					<ul class="list-group">
-					  	<li class="list-group-item animate-repeat" ng-repeat="task in dailyTasks" ng-show="task.status && isTodays(task)">
+					  	<li class="list-group-item animate-repeat completed" ng-repeat="task in dailyTasks" ng-show="task.status && isTodays(task)">
 						    <a class="badge" href="#" ng-click="deleteTask(task)">&times;</a>
 						    {{task.task}}
 					  	</li>
@@ -46,7 +46,7 @@
 						<h1 class="title">Task History</h1>
 					</div>
 					<ul class="list-group">
-					  	<li class="list-group-item animate-repeat" ng-repeat="task in dailyTasks" ng-show="!isTodays(task)">
+					  	<li class="list-group-item animate-repeat" ng-class="{completed : task.finisheddate}" ng-repeat="task in dailyTasks" ng-show="!isTodays(task)">
 						    <a class="badge" href="#" ng-click="deleteTask(task)">&times;</a>
 						    {{task.task}}
 						    <br>
