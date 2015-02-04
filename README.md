@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `task` (
 Navigate to [http://localhost:3000](http://localhost:3000)
 
 ##Created by
-[@krimuthu](https://twitter.com/krimuthu)
+If you like this, follow [@krimuthu](https://twitter.com/krimuthu) on twitter.
 
 ##Licence
 ```
