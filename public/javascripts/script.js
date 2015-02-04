@@ -34,12 +34,14 @@ angular.module("TaskTrackerApp",['ngAnimate'])
 			status : false,
 			createddate : new Date()
 		}
-		$scope.dailyTasks.push(task);
+		
 		$http.post('/api/tasks/add', { data: task }).
 	  	success(function(data, status, headers, config) {
 		    // this callback will be called asynchronously
 		    // when the response is available
 			$scope.task = '';
+			task.id = data.id;
+			$scope.dailyTasks.push(task);
 	  	}).
 	  	error(function(data, status, headers, config) {
 		    // called asynchronously if an error occurs
